@@ -1,4 +1,26 @@
 # idle
-my first incremental game!
 
-Still very WIP, gonna hopefully be pretty cool when done tho!
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+My first incremental game, made using Vue.js!
