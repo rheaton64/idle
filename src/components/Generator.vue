@@ -2,7 +2,7 @@
 <div id='gen'>
   <h2>Generator {{ level }}</h2>
   <h2 style='margin-left:5%;'>{{ amount }}</h2>
-  <button id='button' @click='increment'>Click me!</button>
+  <button id='button' @click='increment'>Cost: {{ cost }}</button>
 </div>
 </template>
 
@@ -18,8 +18,17 @@ export default {
       mult: 1
     }
   },
+  computed: {
+    cost: function () {
+      if(this.amount == 0) {
+        return 0
+      }
+      return Math.pow(2, this.amount)
+    }
+  },
   methods: {
     increment () {
+      this.$parent.moneyQueue.enqueue(-1 * this.cost)
       this.amount++;
       this.$parent.genPerSecond = this.amount * this.mult
     }

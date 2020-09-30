@@ -8,11 +8,14 @@ export default new Vuex.Store({
     money: 0
   },
   mutations: {
-    increment (state, n) {
+    increment (state, n) { 
       state.money += n
+      
     },
     decrement (state, n) {
       state.money -= n
+      console.log(n)
+      console.log(state.money)
     }
   },
   actions: {

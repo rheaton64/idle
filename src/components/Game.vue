@@ -1,7 +1,7 @@
 <template>
   <div id='container'>
     <h2>Incremental Game v{{ version }}</h2>
-    <h1>{{ this.$store.state.money }}</h1>
+    <h1>{{ money }}</h1>
     <Generator :level='1'></Generator>
   </div>
 </template>
@@ -23,6 +23,11 @@ export default {
       genPerSecond: 0
     }
   },
+  computed: {
+    money: function () {
+      return Math.floor(this.$store.state.money * 10) / 10
+    }
+  },
   methods: {
     updateGame () {
       if(!this.moneyQueue.isEmpty()) {
@@ -34,11 +39,10 @@ export default {
         }
       }
       this.$store.commit('increment', this.genPerSecond / 10)
-      console.log(this.genPerSecond)
     }
   },
   mounted () {
-    setInterval(this.updateGame(), 100)
+    setInterval(this.updateGame, 100)
   }
 }
 </script>
