@@ -1,7 +1,8 @@
 <template>
-<div>
+<div id='gen'>
   <h2>Generator {{ level }}</h2>
-  <button @click='increment'></button>
+  <h2 style='margin-left:5%;'>{{ amount }}</h2>
+  <button id='button' @click='increment'>Click me!</button>
 </div>
 </template>
 
@@ -19,12 +20,23 @@ export default {
   },
   methods: {
     increment () {
-      this.$store.commit('increment', 1)
+      this.amount++;
+      this.$parent.genPerSecond = this.amount * this.mult
     }
   }
 }
 </script>
 
 <style scoped>
+#gen {
+  display:flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: center;
+}
 
+#button {
+  height: 100%;
+  margin-left: 5%;
+}
 </style>
