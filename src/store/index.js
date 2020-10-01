@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    money: 0
+    money: 0,
+    mults: [0, 1, 1, 1]
   },
   mutations: {
     increment (state, n) { 
@@ -14,8 +15,9 @@ export default new Vuex.Store({
     },
     decrement (state, n) {
       state.money -= n
-      console.log(n)
-      console.log(state.money)
+    },
+    editMult (state, payload) {
+      state.mults[payload.index] = payload.value
     }
   },
   actions: {
