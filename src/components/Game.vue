@@ -2,6 +2,7 @@
   <div id='container'>
     <h2>Incremental Game v{{ version }}</h2>
     <h1>{{ money }}</h1>
+    <tab-bar></tab-bar>
     <Generator :level='1' :cost-eq-base='2'></Generator>
     <Generator :level='2' :cost-eq-base='3'></Generator>
   </div>
@@ -10,13 +11,15 @@
 <script>
 import Generator from './Generator.vue'
 import Queue from '../structures.js'
+import TabBar from './TabBar.vue'
 import { setInterval } from 'timers';
 import { EventBus } from '../event-bus.js';
 
 export default {
   name: 'Game',
   components: {
-    Generator
+    Generator,
+    TabBar
   },
   data: function() {
     return {
@@ -62,5 +65,6 @@ export default {
 <style scoped>
   #container {
     width:100%;
+    align-items: center;
   }
 </style>

@@ -28,7 +28,8 @@ export default {
       if(this.amount == 0 && this.level == 1) {
         return 0
       }
-      return Math.pow(this.costEqBase, this.amount)
+      var c = this.costEqBase + 1.7*Math.pow(this.level+1, this.amount/2)
+      return Math.floor(c)
     },
     isAffordable: function () {
       if(this.cost > this.$store.state.money) {
@@ -38,9 +39,9 @@ export default {
     },
     isAffordableColor: function () {
       if(this.isAffordable) {
-        return 'gray'
+        return 'white'
       }
-      return 'white'
+      return 'gray'
     },
     ...mapState([
       'mults'
